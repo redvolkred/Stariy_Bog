@@ -31,3 +31,43 @@ internal class Progrem
         
     }
 }
+//internal class Progrem
+{
+    static void Main()
+    {
+        Console.WriteLine("Введите строку: ");
+        string a;
+        HashSet<char> myHash = new HashSet<char> { '.', ' ', ';', ':', ',' };
+        a = Console.ReadLine();
+        Dictionary<char, int> dict = new Dictionary<char, int>();
+        foreach (char i in a)
+        {
+            if (!myHash.Contains(i))
+            {
+                if (dict.ContainsKey(i))
+                {
+                    dict[i] += 1;
+                }
+                else
+                {
+                    dict.Add(i, 1);
+                }
+            }
+        }
+        foreach (char i in dict.Keys)
+        {
+            Console.WriteLine($"key {i}, value {dict[i]}");
+        }
+        List<KeyValuePair<char, int>> myList = dict.ToList();
+        myList.Sort(
+            delegate (KeyValuePair<char, int> pair1,
+            KeyValuePair<char, int> pair2)
+            {
+                return pair1.Value.CompareTo(pair2.Value);
+            }
+        );
+        Console.WriteLine();
+        var lastItem = myList.Last();
+        Console.WriteLine(lastItem);
+    }
+}
