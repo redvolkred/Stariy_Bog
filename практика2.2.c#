@@ -1,1 +1,33 @@
-
+using System;
+using System.Collections.Generic;
+internal class Progrem
+{
+    static void Main()
+    {
+        Console.WriteLine("Введите строку: ");
+        string a;
+        HashSet<char> myHash = new HashSet<char> { '.', ' ', ';', ':', ',' };
+        a = Console.ReadLine();
+        Dictionary<char, int> dict = new Dictionary<char, int>();
+        foreach (char i in a)
+        {
+            if (!myHash.Contains(i))
+            {
+                if (dict.ContainsKey(i))
+                {
+                    dict[i] += 1;
+                }
+                else
+                {
+                    dict.Add(i, 1);
+                }
+            }
+        }
+        foreach (char i in dict.Keys)
+        {
+            Console.WriteLine($"key {i}, value {dict[i]}");
+        }
+        
+        
+    }
+}
