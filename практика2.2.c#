@@ -4,7 +4,7 @@ internal class Progrem
     {
         Console.WriteLine("Введите строку: ");
         string a;
-        HashSet<char> myHash = new HashSet<char> { '.', ' ', ';', ':', ',' };
+        HashSet<char> myHash = new HashSet<char> { '.', ' ', ';', ':', ',', '-' };
         a = Console.ReadLine();
         Dictionary<char, int> dict = new Dictionary<char, int>();
         foreach (char i in a)
