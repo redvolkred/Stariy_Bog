@@ -1,0 +1,37 @@
+internal class Progrem
+{
+    static void Main()
+    {
+        Console.WriteLine("Введите строку: ");
+        string a;
+        HashSet<char> myHash = new HashSet<char> { '.', ' ', ';', ':', ',', '-' };
+        a = Console.ReadLine();
+        Dictionary<char, int> dict = new Dictionary<char, int>();
+        foreach (char i in a)
+        {
+            if (!myHash.Contains(i))
+            {
+                if (dict.ContainsKey(i))
+                {
+                    dict[i] += 1;
+                }
+                else
+                {
+                    dict.Add(i, 1);
+                }
+            }
+        }
+        
+        foreach (var pair in dict.OrderByDescending(pair => pair.Value))
+        {
+            Console.WriteLine("{0} - {1}", pair.Key, pair.Value);
+          
+        }
+        var largestPairs = dict.OrderByDescending(pair => pair.Value).Take(6);
+            Console.WriteLine("Самые частоупотребляемые буквы:");
+            foreach (var pair in largestPairs)
+            {
+                Console.WriteLine("{0} - {1}", pair.Key, pair.Value);
+            }
+        }
+}
