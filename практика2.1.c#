@@ -1,0 +1,19 @@
+using System;
+using System.Collections.Generic;
+internal class Progrem
+{
+    static void Main()
+    {
+        Console.WriteLine("Введите числа: ");
+        string a;
+        HashSet<string> myHash = new HashSet<string>();
+        do 
+        {
+           a = Console.ReadLine();
+           myHash.Add(a);
+        }
+        while (a!="");
+        foreach (string value in myHash)
+        Console.WriteLine(value);
+    }
+}
