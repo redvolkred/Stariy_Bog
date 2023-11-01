@@ -1,11 +1,15 @@
+using System.Collections.Generic;
+using System.Linq;
+using System;
+
 internal class Progrem
 {
     static void Main()
     {
         Console.WriteLine("Введите строку: ");
-        string a;
+        string a = Console.ReadLine();
         HashSet<char> myHash = new HashSet<char> { '.', ' ', ';', ':', ',', '-' };
-        a = Console.ReadLine();
+        a = a.ToLower();
         Dictionary<char, int> dict = new Dictionary<char, int>();
         foreach (char i in a)
         {
@@ -21,17 +25,17 @@ internal class Progrem
                 }
             }
         }
-        
+
         foreach (var pair in dict.OrderByDescending(pair => pair.Value))
         {
             Console.WriteLine("{0} - {1}", pair.Key, pair.Value);
-          
+
         }
-        var largestPairs = dict.OrderByDescending(pair => pair.Value).Take(6);
-            Console.WriteLine("Самые частоупотребляемые буквы:");
-            foreach (var pair in largestPairs)
-            {
-                Console.WriteLine("{0} - {1}", pair.Key, pair.Value);
-            }
+        var largestPairs = dict.OrderByDescending(pair => pair.Value).Take(1);
+        Console.WriteLine("Самые частоупотребляемые буквы:");
+        foreach (var pair in largestPairs)
+        {
+            Console.WriteLine("{0} - {1}", pair.Key, pair.Value);
         }
+    }
 }
