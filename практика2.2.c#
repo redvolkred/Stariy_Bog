@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 internal class Progrem
 {
     static void Main()
@@ -27,47 +25,13 @@ internal class Progrem
         {
             Console.WriteLine($"key {i}, value {dict[i]}");
         }
-        
-        
-    }
-}
-//internal class Progrem
-{
-    static void Main()
-    {
-        Console.WriteLine("Введите строку: ");
-        string a;
-        HashSet<char> myHash = new HashSet<char> { '.', ' ', ';', ':', ',' };
-        a = Console.ReadLine();
-        Dictionary<char, int> dict = new Dictionary<char, int>();
-        foreach (char i in a)
+        foreach (var pair in dict.OrderByDescending(pair => pair.Value))
         {
-            if (!myHash.Contains(i))
+            for (int i = 0; i < 2; i++)
             {
-                if (dict.ContainsKey(i))
-                {
-                    dict[i] += 1;
-                }
-                else
-                {
-                    dict.Add(i, 1);
-                }
+                Console.WriteLine("{0} - {1}", pair.Key, pair.Value);
             }
         }
-        foreach (char i in dict.Keys)
-        {
-            Console.WriteLine($"key {i}, value {dict[i]}");
-        }
-        List<KeyValuePair<char, int>> myList = dict.ToList();
-        myList.Sort(
-            delegate (KeyValuePair<char, int> pair1,
-            KeyValuePair<char, int> pair2)
-            {
-                return pair1.Value.CompareTo(pair2.Value);
-            }
-        );
-        Console.WriteLine();
-        var lastItem = myList.Last();
-        Console.WriteLine(lastItem);
+        
     }
 }
