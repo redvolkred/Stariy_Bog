@@ -47,10 +47,3 @@ for row in arr1:
 print("Второй преобразованный массив:")
 for row in arr2:
     print(row)
-
-#функция сортировки элементов со встроенными функциями сортировки
-def sort_odd_rows(arr):
-    for i in range(len(arr)):
-        if i % 2 == 0:
-            arr[i] = sorted(arr[i], key=abs)
-    return arr
