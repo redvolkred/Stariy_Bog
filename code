@@ -1,0 +1,49 @@
+#функция сортировки элементов
+def sort(arr):
+    for i in range(len(arr)):
+        if i % 2 == 0:  #проверка на нечетную строку
+            #сортирова пузырьком
+            for j in range(len(arr[i]) - 1):
+                for k in range(len(arr[i]) - 1 - j):
+                    if abs(arr[i][k]) > abs(arr[i][k + 1]):
+                        arr[i][k], arr[i][k + 1] = arr[i][k + 1], arr[i][k]
+    return arr
+
+a = int(input("Введите размер 1 массива (от 1 до 10): "))
+while a > 10 or a <= 0:
+    a = int(input("Неверный размер. Введите размер 1 массива (от 1 до 10): "))
+
+b = int(input("Введите размер 2 массива (от 1 до 10): "))
+while b > 10 or b <= 0:
+    b = int(input("Неверный размер. Введите размер 2 массива (от 1 до 10): "))
+
+arr1 = []
+arr2 = []
+
+#заполнение массивов
+for i in range(a):
+    row = []  #новая строка
+    for j in range(a):
+        element = float(input(f"Введите элемент {i}-{j} первого массива: "))
+        row.append(element)  #добавляем элемент в строку
+    arr1.append(row)  #добавляем строку в массив
+
+for i in range(b):
+    row = []  #новая строка
+    for j in range(b):
+        element = float(input(f"Введите элемент {i}-{j} второго массива: "))
+        row.append(element)  #добавляем элемент в строку
+    arr2.append(row)  #добавляем строку в массив
+
+#преобразование массивов
+arr1 = sort(arr1)
+arr2 = sort(arr2)
+
+#вывод массивов
+print("Первый преобразованный массив:")
+for row in arr1:
+    print(row)
+
+print("Второй преобразованный массив:")
+for row in arr2:
+    print(row)
