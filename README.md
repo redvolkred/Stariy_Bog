@@ -1,4 +1,4 @@
-Вариант 13
+Вариант 9 вторая лаба
 
 https://google.bcit.su/yDUGQ9
 
